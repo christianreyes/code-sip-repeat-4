@@ -25,6 +25,7 @@ def generate_complex_password(complexity_string: str):
         - "L" for a random lowercase letter
         - "U" for a random uppercase letter
         - "N" for a random number
+        - "W" for a wildcard (any character from the above)
 
     Output:
     A random complex password conforming with the input complexity string requirements
@@ -38,13 +39,17 @@ def generate_complex_password(complexity_string: str):
             password_chars.append(random_upper()) # add the random upper letter to the end of the list
         elif c == "N": # if the current character matches "N"
             password_chars.append(random_number())
-            
+        elif c == "W": # if wildcard
+            rand_function = random.choice([random_lower, random_upper, random_number]) # lists can contain any values, even functions!
+            password_chars.append(rand_function()) # call the function which was selected above
+
+    
     random.shuffle(password_chars) # randomly shuffle all the characters in the list
     return "".join(password_chars) # combine all the characters in the list into a single string and return it
 
 def main():
     print("Hello, World! This is the Code.Sip.Repeat Random Password Generator")
-    print(f"Your random password is: { generate_complex_password('LLLUUUNNN') }") # replace with our new function and an input complexity string. "LLLUUU" as the example should generate 3 random lowercase, uppercase, and numbers, shuffled
+    print(f"Your random password is: { generate_complex_password('LLLUUUNNNWWW') }") # replace with our new function and an input complexity string. "LLLUUU" as the example should generate 3 random lowercase, uppercase, numbers, and 3 wildcard,  shuffled
 
 if __name__ == "__main__":
     main()
