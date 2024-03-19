@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>Code.Sip.Repeat - Password Generator</title>
+</head>
+<body>
+    <h1>Code.Sip.Repeat - Password Generator</h1>
+    <p>
+        How it works: Enter in the complexity string. Parameters:
+        <table>
+            <tr>
+                <th>Character</th>
+                <th>Meaning</th>
+            </tr>
+            <tr>
+                <td>L</td>
+                <td>Lowercase letter [a-z]</td>
+            </tr>
+            <tr>
+                <td>U</td>
+                <td>Uppercase letter [A-Z]</td>
+            </tr>
+            <tr>
+                <td>N</td>
+                <td>Number [0-9]</td>
+            </tr>
+            <tr>
+                <td>W</td>
+                <td>Any of the above</td>
+            </tr>
+        </table>
+    </p>
+    <form method="get">
+        <label for="complexity_string">Complexity String:</label>
+        <input type="text" name="complexity_string" value="LLLUUUNNNWWW"/>
+        <button type="submit">Generate!</button>
+    </form>
+    <p>
+        Here's your custom password: <b>{{ password }}</b>
+    </p>
+</body>
+</html>
